@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "w2v-seld"
+version = "0.1.0"
+description = "基于 wav2vec 2.0 的声音事件检测与定位 (SELD) 推理引擎"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "老年陪伴AI 团队" },
+]
+keywords = ["audio", "sound-event-detection", "wav2vec", "seld", "elderly-care"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.scripts]
+seld-api = "seld.api:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "fast: 快速单元测试 (默认, 无需 GPU/权重)",
+    "slow: 需要真实模型权重的测试",
+    "gpu: 需要 CUDA GPU 的测试",
+    "benchmark: 性能基准测试",
+    "api: FastAPI 集成测试",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]

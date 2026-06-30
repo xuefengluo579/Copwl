@@ -1,0 +1,33 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Model checkpoints
+checkpoints/*.pt
+checkpoints/*.pth
+checkpoints/*.bin
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+.pytest_cache/
+
+# Conda
+.python-version

@@ -1,0 +1,22 @@
+# w2v-SELD 默认配置文件
+# 所有值均可通过环境变量覆盖（前缀 SELD_，全大写）
+
+model:
+  model_path: "./checkpoints/w2v_seld_base"
+  checkpoint_path: "./checkpoints/w2v_seld_base.pt"
+  device: "auto"       # "cuda" | "cpu" | "auto" (CUDA > MPS > CPU 自动选择)
+  use_fairseq: true    # true=fairseq from_pretrained, false=torch.load state_dict
+
+audio:
+  sample_rate: 16000   # 必须为 16kHz（wav2vec 2.0 原生采样率）
+  num_channels: 4      # Ambisonics B 格式：W, X, Y, Z
+  frame_duration_ms: 100  # 模型每帧对应 100ms 音频
+
+inference:
+  event_threshold: 0.5        # SED 激活阈值
+  min_event_duration_ms: 100  # 最小事件持续时长（过滤瞬态噪声）
+  batch_size: 1
+
+streaming:
+  window_seconds: 2.0  # 滑动窗口长度
+  hop_seconds: 0.5     # 窗口步进

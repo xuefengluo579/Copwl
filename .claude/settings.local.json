@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pip install pytest pyyaml pydantic numpy 2>&1)",
+      "PowerShell(pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu 2>&1)"
+    ]
+  }
+}
