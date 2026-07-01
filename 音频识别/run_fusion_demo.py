@@ -11,9 +11,13 @@
 
 from __future__ import annotations
 
+import sys
 import time
-import random
 from typing import Optional
+
+# 强制 UTF-8 输出 (Windows 终端兼容)
+if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 from seld.perception import AudioPerception, VisualPerception
 from seld.models import DetectedEvent, DOAVector, EventType
